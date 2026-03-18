@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Images & Netlify — Afrokan</title>
+  <meta name="description" content="Guide rapide pour envoyer des images et administrer le site via Netlify." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="canonical" href="/images/" />
+</head>
+<body>
+<div class="site-shell">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><span class="brand-mark">Afrokan.</span><span class="brand-tag">Le blog — Toulouse</span></a><nav class="footer-links"><a class="nav-link" href="/">Articles</a><a class="nav-link" href="/images/">Images & Netlify</a><a class="nav-link" href="/admin/">Admin</a></nav></div></header>
+<main><section class="page-wrap"><div class="container" style="max-width:860px;"><h1 class="page-title" style="font-size:3.5rem; margin-top:0;">Uploader des images facilement</h1><div class="callout"><p>Le site inclut <strong>Decap CMS</strong> dans <code>/admin</code>. Une fois Netlify Identity et Git Gateway activés, vous pourrez :</p><ul class="note-list"><li>créer ou modifier un article sans toucher au code ;</li><li>téléverser des images depuis l’éditeur ;</li><li>retrouver automatiquement les fichiers dans <code>src/assets/uploads</code>.</li></ul></div><div class="upload-box"><h2>Étapes Netlify</h2><ol class="note-list"><li>Déployez le dépôt sur Netlify.</li><li>Dans <strong>Site configuration → Identity</strong>, activez Identity.</li><li>Activez ensuite <strong>Git Gateway</strong>.</li><li>Invitez votre utilisateur dans Identity.</li><li>Connectez-vous sur <code>/admin</code> et utilisez le champ image dans un article.</li></ol><p>Si vous voulez seulement héberger des images, vous pouvez aussi déposer les fichiers manuellement dans <code>src/assets/uploads</code> puis relancer le déploiement.</p></div></div></section></main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="brand-mark">Afrokan.</div><p class="footer-copy">Le guide indépendant de la culture afro et caribéenne toulousaine.</p></div><div class="footer-links"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a class="nav-link" href="mailto:contact@example.com">Contact</a></div></div></footer>
+</div>
+</body>
+</html>
