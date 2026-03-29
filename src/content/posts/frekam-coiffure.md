@@ -6,7 +6,7 @@ dateLabel: "05 Mars 2026"
 dateIso: "2026-03-05"
 excerpt: "Un salon familial, ouvert non-stop du lundi au samedi, qui maîtrise aussi bien le cheveu crépu que raide. Une valeur sûre à Patte d'Oie."
 address: "29 Av. de Grande Bretagne, 31300 Toulouse"
-coverImage: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1200&auto=format&fit=crop"
+coverImage: "https://res.cloudinary.com/planity/image/upload/t_d_main,f_auto/ojkmhrmiqtzc4majm8qj"
 galleryImages:
   - "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1200&auto=format&fit=crop"
 ---
