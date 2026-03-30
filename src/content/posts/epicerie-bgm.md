@@ -6,7 +6,7 @@ dateLabel: "01 Mars 2026"
 dateIso: "2026-03-01"
 excerpt: "Plantains frais, épices du pays et la fameuse vraie Ginger Beer : la petite boutique de la rue de la République qui sauve vos plats."
 address: "20 Rue de la République, 31300 Toulouse"
-coverImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
+coverImage: "https://images.ladepeche.fr/api/v1/images/view/5c25e1168fe56f3dd57fedad/large/image.jpg"
 ---
 Ceux qui savent, savent. L'Épicerie Exotique BGM, située à deux pas de la place Saint-Cyprien, est le passage obligé pour tous ceux qui veulent cuisiner des plats afro-caribéens dignes de ce nom à Toulouse.
 
