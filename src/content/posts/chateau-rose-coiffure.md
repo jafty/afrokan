@@ -6,7 +6,7 @@ dateLabel: "14 Mars 2026"
 dateIso: "2026-03-14"
 excerpt: "Trouver un ou une pro pour ses tresses sans échanger 40 messages sur Insta ? C'est le pari réussi de cette nouvelle plateforme toulousaine de réservation."
 address: "À domicile ou en salon (Toulouse & Métropole)"
-coverImage: "https://chateau-rose-bucket.s3.amazonaws.com/marketing/services/main/tresses_new.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4UHTBVVHARYY6VN3%2F20260329%2Feu-north-1%2Fs3%2Faws4_request&X-Amz-Date=20260329T215050Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=97aa07bab03deed0328a64cc09469f15d4215a9b2df320cafea73d53c3a1e087"
+coverImage: "/uploads/tresses_new.jpg"
 galleryImages:
   - "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1200&auto=format&fit=crop"
 ---
