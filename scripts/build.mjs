@@ -112,7 +112,7 @@ function layout({ title, description = '', content, canonical = '/' }) { return 
 </head>
 <body>
 <div class="site-shell">
-<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><span class="brand-mark">Afrokan.</span><span class="brand-tag">Le blog — Toulouse</span></a><nav class="footer-links"><a class="nav-link" href="/">Articles</a><a class="nav-link" href="/images/">Images & Netlify</a><a class="nav-link" href="/admin/">Admin</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/"><span class="brand-mark">Afrokan.</span><span class="brand-tag">Le blog — Toulouse</span></a><nav class="footer-links"><a class="nav-link" href="/">Articles</a></nav></div></header>
 <main>${content}</main>
 <footer class="site-footer"><div class="container footer-inner"><div><div class="brand-mark">Afrokan.</div><p class="footer-copy">Le guide indépendant de la culture afro et caribéenne toulousaine.</p></div><div class="footer-links"><a class="nav-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a class="nav-link" href="mailto:contact@example.com">Contact</a></div></div></footer>
 </div>
@@ -125,7 +125,7 @@ function renderCard(post) {
 
 function renderHome(posts) {
   const pills = [['all', categories.all], ...Object.entries(categories).filter(([k]) => k !== 'all')].map(([slug, label]) => `<a class="filter-pill${slug === 'all' ? ' active' : ''}" href="${slug === 'all' ? '/' : `/categories/${slug}/`} ">${label}</a>`).join('');
-  return layout({ title: 'Afrokan. City Guide & Blog', description: 'Histoires, adresses et culture. Les vraies pépites afro et caribéennes de Toulouse.', content: `<section class="hero"><div class="container hero-grid"><div><h1>Le journal afro <span style="color:var(--accent);font-style:italic;">de la Ville Rose.</span></h1><p>Histoires, adresses et culture. Les vraies pépites de Toulouse racontées par ceux qui les vivent.</p></div><aside class="callout"><h2 style="margin-top:0; font-size:2rem;">Publier simplement sur Netlify</h2><p>Le site est désormais multi-page, généré depuis des fichiers Markdown, avec un espace <strong>/admin</strong> pour gérer les articles et envoyer des images dans <code>src/assets/uploads</code>.</p></aside></div></section><section class="container"><div class="filter-bar">${pills}</div><div class="card-grid">${posts.map(renderCard).join('')}</div></section>` });
+  return layout({ title: 'Afrokan. City Guide & Blog', description: 'Histoires, adresses et culture. Les vraies pépites afro et caribéennes de Toulouse.', content: `<section class="hero"><div class="container hero-grid"><div><h1>Le journal afro <span style="color:var(--accent);font-style:italic;">de la Ville Rose.</span></h1><p>Histoires, adresses et culture. Les vraies pépites de Toulouse racontées par ceux qui les vivent.</p></div><aside class="callout"><h2 style="margin-top:0; font-size:2rem;">Le guide public des bonnes adresses</h2><p>Afrokan met en avant les restaurants, salons et boutiques afro-caribéens de Toulouse avec des contenus pensés uniquement pour les lecteurs.</p></aside></div></section><section class="container"><div class="filter-bar">${pills}</div><div class="card-grid">${posts.map(renderCard).join('')}</div></section>` });
 }
 
 function renderCategory(posts, category) {
@@ -137,16 +137,9 @@ function renderPost(post) {
   return layout({ title: `${post.title} — Afrokan`, description: post.excerpt, canonical: `/${post.slug}/`, content: `<section class="page-wrap"><article class="article-layout"><a class="back-link" href="/">← Retour au guide</a><div class="meta" style="margin-top:1.5rem;"><span class="badge">${categories[post.category]}</span><span>${post.dateLabel}</span><span>📍 ${escapeHtml(post.address)}</span></div><h1 class="article-title">${escapeHtml(post.title)}</h1><img class="article-cover" src="${post.coverImage}" alt="${escapeHtml(post.title)}" /><div class="article-content">${post.content}</div>${gallery}</article></section>` });
 }
 
-function renderImagesPage() {
-  return layout({ title: 'Images & Netlify — Afrokan', description: 'Guide rapide pour envoyer des images et administrer le site via Netlify.', canonical: '/images/', content: `<section class="page-wrap"><div class="container" style="max-width:860px;"><h1 class="page-title" style="font-size:3.5rem; margin-top:0;">Uploader des images facilement</h1><div class="callout"><p>Le site inclut <strong>Decap CMS</strong> dans <code>/admin</code>. Une fois Netlify Identity et Git Gateway activés, vous pourrez :</p><ul class="note-list"><li>créer ou modifier un article sans toucher au code ;</li><li>téléverser des images depuis l’éditeur ;</li><li>retrouver automatiquement les fichiers dans <code>src/assets/uploads</code>.</li></ul></div><div class="upload-box"><h2>Étapes Netlify</h2><ol class="note-list"><li>Déployez le dépôt sur Netlify.</li><li>Dans <strong>Site configuration → Identity</strong>, activez Identity.</li><li>Activez ensuite <strong>Git Gateway</strong>.</li><li>Invitez votre utilisateur dans Identity.</li><li>Connectez-vous sur <code>/admin</code> et utilisez le champ image dans un article.</li></ol><p>Si vous voulez seulement héberger des images, vous pouvez aussi déposer les fichiers manuellement dans <code>src/assets/uploads</code> puis relancer le déploiement.</p></div></div></section>` });
-}
-
 clearDir(distDir);
 copyDir(assetsDir, distDir);
-copyDir(path.join(root, 'admin'), path.join(distDir, 'admin'));
 const posts = readPosts();
 fs.writeFileSync(path.join(distDir, 'index.html'), renderHome(posts));
-ensureDir(path.join(distDir, 'images'));
-fs.writeFileSync(path.join(distDir, 'images', 'index.html'), renderImagesPage());
 for (const category of Object.keys(categories).filter((key) => key !== 'all')) { ensureDir(path.join(distDir, 'categories', category)); fs.writeFileSync(path.join(distDir, 'categories', category, 'index.html'), renderCategory(posts, category)); }
 for (const post of posts) { ensureDir(path.join(distDir, post.slug)); fs.writeFileSync(path.join(distDir, post.slug, 'index.html'), renderPost(post)); }
